@@ -1,0 +1,885 @@
+{
+  "gender": [
+    "female",
+    "male"
+  ],
+  "age": {
+    "min": 12,
+    "max": 80
+  },
+  "universe": {
+    "hexxen": {
+      "lineage": {
+        "german": {
+          "first_name": {
+            "female": [
+              "Agnes",
+              "Anna",
+              "Clara",
+              "Elisabeth",
+              "Emilia",
+              "Greta",
+              "Hedwig",
+              "Johanna",
+              "Katharina",
+              "Luise",
+              "Magdalena",
+              "Marta",
+              "Rosina",
+              "Theresa",
+              "Verena"
+            ],
+            "male": [
+              "Albrecht",
+              "Alfred",
+              "Andreas",
+              "Benedikt",
+              "Bernd",
+              "Caspar",
+              "Christian",
+              "Daniel",
+              "Elias",
+              "Erik",
+              "Friedrich",
+              "Georg",
+              "Günther",
+              "Hans",
+              "Johann",
+              "Johannes",
+              "Klaus",
+              "Konrad",
+              "Ludwig",
+              "Lukas",
+              "Matthias",
+              "Max",
+              "Nikolaus",
+              "Norbert",
+              "Otto",
+              "Severin",
+              "Tobias",
+              "Veit",
+              "Wilhelm"
+            ]
+          },
+          "last_name": [
+            "Brandt",
+            "Fischer",
+            "Gruber",
+            "Hofmann",
+            "Keller",
+            "Müller",
+            "Schmidt",
+            "Schneider",
+            "Schulz",
+            "Weber"
+          ]
+        },
+        "french": {
+          "first_name": {
+            "female": [
+              "Amélie",
+              "Camille",
+              "Chantal",
+              "Élise",
+              "Isabelle",
+              "Juliette",
+              "Léa",
+              "Madeleine",
+              "Nathalie",
+              "Sophie",
+              "Valérie"
+            ],
+            "male": [
+              "Antoine",
+              "Bertrand",
+              "Claude",
+              "Denis",
+              "Étienne",
+              "François",
+              "Gilles",
+              "Henri",
+              "Jean",
+              "Luc",
+              "Marcel",
+              "Nicolas",
+              "Pierre",
+              "Robert",
+              "Simon",
+              "Thierry"
+            ]
+          },
+          "last_name": [
+            "Artois",
+            "Beaumont",
+            "Bellamy",
+            "Blanchet",
+            "Charbonneau",
+            "Chevalier",
+            "Corbeau",
+            "Corbin",
+            "de Rochefort",
+            "Duclair",
+            "Dufort",
+            "Dumas",
+            "Durand",
+            "Fournier",
+            "Laurent",
+            "Lefèvre",
+            "Mercier",
+            "Montfort",
+            "Moreau",
+            "Morel",
+            "Noir",
+            "Rousseau",
+            "Vaillant",
+            "Valcourt",
+            "Valois",
+            "Verdier"
+          ]
+        },
+        "slavic": {
+          "first_name": {
+            "female": [
+              "Alina",
+              "Anya",
+              "Danica",
+              "Eliska",
+              "Ivana",
+              "Katarina",
+              "Ludmila",
+              "Milena",
+              "Mirela",
+              "Nadia",
+              "Sonya",
+              "Tatjana",
+              "Vesna",
+              "Yelena",
+              "Zofia"
+            ],
+            "male": [
+              "Aleksy",
+              "Bogdan",
+              "Branislav",
+              "Dimitri",
+              "Jarek",
+              "Lazar",
+              "Marek",
+              "Mikhail",
+              "Olek",
+              "Pavel",
+              "Radovan",
+              "Stefan",
+              "Tomasz",
+              "Viktor",
+              "Yuri"
+            ]
+          },
+          "last_name": [
+            "Borovic",
+            "Cerny",
+            "Dragic",
+            "Dragunov",
+            "Dragunova",
+            "Iliev",
+            "Ilieva",
+            "Kazimir",
+            "Kowalska",
+            "Kowalski",
+            "Kral",
+            "Krol",
+            "Moroz",
+            "Morozova",
+            "Novak",
+            "Petrovic",
+            "Radic",
+            "Sidorov",
+            "Sokolov",
+            "Varga",
+            "Volkov",
+            "Vukov",
+            "Vukovic",
+            "Wrobel",
+            "Zoric"
+          ]
+        },
+        "british": {
+          "first_name": {
+            "female": [
+              "Abigail",
+              "Amelia",
+              "Beatrice",
+              "Catherine",
+              "Charlotte",
+              "Edith",
+              "Eleanor",
+              "Evelyn",
+              "Judith",
+              "Lucy",
+              "Margaret",
+              "Marianne",
+              "Rebecca",
+              "Sarah",
+              "Violet"
+            ],
+            "male": [
+              "Arthur",
+              "Cedric",
+              "Edward",
+              "Elias",
+              "Gideon",
+              "Henry",
+              "Isaac",
+              "Jonathan",
+              "Nathaniel",
+              "Oliver",
+              "Rupert",
+              "Samuel",
+              "Thomas",
+              "Victor",
+              "William"
+            ]
+          },
+          "last_name": [
+            "Ashcroft",
+            "Ashford",
+            "Blackthorne",
+            "Blackwell",
+            "Blackwood",
+            "Crowe",
+            "Crowley",
+            "Frost",
+            "Graves",
+            "Hale",
+            "Hargreave",
+            "Harrow",
+            "Holloway",
+            "Kingsley",
+            "Reed",
+            "Thorn",
+            "Thornfield",
+            "Wainwright",
+            "Whitmore",
+            "Winterbourne",
+            "Wren"
+          ]
+        },
+        "italian": {
+          "first_name": {
+            "female": [
+              "Adriana",
+              "Alessandra",
+              "Bianca",
+              "Caterina",
+              "Elena",
+              "Francesca",
+              "Giulia",
+              "Isabella",
+              "Lucia",
+              "Maria",
+              "Rosa",
+              "Serena",
+              "Sofia",
+              "Valentina",
+              "Vittoria"
+            ],
+            "male": [
+              "Alessio",
+              "Angelo",
+              "Carlo",
+              "Dante",
+              "Enzo",
+              "Fabrizio",
+              "Giacomo",
+              "Lorenzo",
+              "Luciano",
+              "Marco",
+              "Matteo",
+              "Paolo",
+              "Renato",
+              "Stefano",
+              "Vittorio"
+            ]
+          },
+          "last_name": [
+            "Bellandi",
+            "Bellarmino",
+            "Bellarosa",
+            "Corvini",
+            "Corvino",
+            "DeLuca",
+            "Ferrara",
+            "Ferraro",
+            "Fiora",
+            "Lucchesi",
+            "Moretti",
+            "Neroni",
+            "Ricci",
+            "Rinaldi",
+            "Serra",
+            "Valenti",
+            "Ventresca",
+            "Vescari",
+            "Visconti"
+          ]
+        },
+        "osman": {
+          "first_name": {
+            "female": [
+              "Alina",
+              "Aylin",
+              "Azra",
+              "Daria",
+              "Emira",
+              "Esma",
+              "Hana",
+              "Lejla",
+              "Medina",
+              "Mirela",
+              "Nadira",
+              "Samira",
+              "Selma",
+              "Yasemin",
+              "Zuleika"
+            ],
+            "male": [
+              "Adnan",
+              "Aziz",
+              "Emir",
+              "Faruk",
+              "Hamza",
+              "Ilhan",
+              "Iskander",
+              "Kemal",
+              "Mehmed",
+              "Nermin",
+              "Orhan",
+              "Rashid",
+              "Selim",
+              "Tarik",
+              "Yusuf"
+            ]
+          },
+          "last_name": [
+            "Arslan",
+            "Baran",
+            "Corlu",
+            "Demir",
+            "Demirovic",
+            "Draskovic",
+            "Drazic",
+            "Hadzic",
+            "Halil",
+            "Halilovic",
+            "Kara",
+            "Karic",
+            "Karovic",
+            "Kostic",
+            "Kovac",
+            "Petric",
+            "Sabic",
+            "Veli",
+            "Velic",
+            "Velimirov",
+            "Vukasin"
+          ]
+        },
+        "scandinavian": {
+          "first_name": {
+            "female": [
+              "Annika",
+              "Astrid",
+              "Dagmar",
+              "Elin",
+              "Freya",
+              "Helena",
+              "Ingrid",
+              "Karin",
+              "Liv",
+              "Marta",
+              "Runa",
+              "Sigrid",
+              "Solveig",
+              "Thyra",
+              "Ylva"
+            ],
+            "male": [
+              "Anders",
+              "Arvid",
+              "Björn",
+              "Erik",
+              "Henrik",
+              "Ivar",
+              "Knut",
+              "Leif",
+              "Magnus",
+              "Nils",
+              "Olav",
+              "Rurik",
+              "Soren",
+              "Stig",
+              "Torsten"
+            ]
+          },
+          "last_name": [
+            "Andersdotter",
+            "Bjarnsen",
+            "Bjork",
+            "Eide",
+            "Ekberg",
+            "Falk",
+            "Gunnarson",
+            "Halberg",
+            "Hald",
+            "Haldorsen",
+            "Halvorsen",
+            "Holm",
+            "Isen",
+            "Lund",
+            "Nygaard",
+            "Rasmussen",
+            "Ravn",
+            "Skall",
+            "Skarsen",
+            "Skov",
+            "Storm",
+            "Svensson",
+            "Vale"
+          ]
+        }
+      }
+    },
+    "aventuria": {
+      "age": {
+        "min": 16,
+        "max": 90
+      },
+      "lineage": {
+        "thorwalian": {
+          "first_name": {
+            "female": [
+              "Adra",
+              "Beata",
+              "Liora",
+              "Mara",
+              "Niela",
+              "Rissa",
+              "Tana",
+              "Vella"
+            ],
+            "male": [
+              "Balin",
+              "Derek",
+              "Haran",
+              "Joric",
+              "Lorin",
+              "Oran",
+              "Rudek",
+              "Soren"
+            ]
+          },
+          "last_name": [
+            "Bram",
+            "Eisenfaust",
+            "Feld",
+            "Großbach",
+            "Hochwald",
+            "Klingen",
+            "Rabenholz",
+            "Teufelsberg"
+          ]
+        }
+      }
+    },
+    "faerun": {
+      "lineage": {
+        "dwarf": {
+          "age": {
+            "min": 40,
+            "max": 380
+          },
+          "first_name": {
+            "female": [
+              "Brynn",
+              "Dagna",
+              "Elda",
+              "Falkrunn",
+              "Gilda",
+              "Hlin",
+              "Kara",
+              "Rotha"
+            ],
+            "male": [
+              "Baern",
+              "Dain",
+              "Fargrim",
+              "Gim",
+              "Kildrak",
+              "Orm",
+              "Rurik",
+              "Ulfgar"
+            ]
+          },
+          "last_name": [
+            "Battlehammer",
+            "Deepdelver",
+            "Goldseeker",
+            "Grimshield",
+            "Ironfist",
+            "Stoneforge",
+            "Thunderbeard"
+          ]
+        },
+        "elf": {
+          "first_name": {
+            "female": [
+              "Aelene",
+              "Dara",
+              "Ilyana",
+              "Laela",
+              "Sylara",
+              "Thalira",
+              "Vaela",
+              "Yllian"
+            ],
+            "male": [
+              "Aelar",
+              "Faelar",
+              "Ithil",
+              "Laerdya",
+              "Sylion",
+              "Thaelon",
+              "Vael",
+              "Velyndar"
+            ]
+          },
+          "last_name": [
+            "Amakiir",
+            "Galanodel",
+            "Liadon",
+            "Meliamne",
+            "Nailo",
+            "Siannodel",
+            "Xiloscient"
+          ]
+        },
+        "gnome": {
+          "first_name": {
+            "female": [
+              "Bimpnottin",
+              "Dimble",
+              "Foddex",
+              "Nyla",
+              "Pinky",
+              "Rima",
+              "Tana",
+              "Wrenn"
+            ],
+            "male": [
+              "Alston",
+              "Brocc",
+              "Eldon",
+              "Fonkin",
+              "Nikki",
+              "Osborn",
+              "Sven",
+              "Zook"
+            ]
+          },
+          "last_name": [
+            "Beren",
+            "Daergel",
+            "Garrick",
+            "Nackle",
+            "Murnig",
+            "Scheppen",
+            "Timbers"
+          ]
+        },
+        "halfling": {
+          "first_name": {
+            "female": [
+              "Ari",
+              "Cora",
+              "Elsa",
+              "Fia",
+              "Lila",
+              "Merry",
+              "Nina",
+              "Poppy"
+            ],
+            "male": [
+              "Alton",
+              "Bodo",
+              "Cade",
+              "Elmo",
+              "Finnan",
+              "Hugo",
+              "Milo",
+              "Roscoe"
+            ]
+          },
+          "last_name": [
+            "Brandybuck",
+            "Goodbarrel",
+            "Greenbottle",
+            "High-hill",
+            "Tealeaf",
+            "Underbough"
+          ]
+        },
+        "human": {
+          "first_name": {
+            "female": [
+              "Aria",
+              "Brynn",
+              "Celia",
+              "Elise",
+              "Maris",
+              "Nora",
+              "Selene",
+              "Tessa"
+            ],
+            "male": [
+              "Alric",
+              "Dorian",
+              "Elias",
+              "Galen",
+              "Kellan",
+              "Matthias",
+              "Ronan",
+              "Theron"
+            ]
+          },
+          "last_name": [
+            "Ashford",
+            "Brightwood",
+            "Carrick",
+            "Dawson",
+            "Holloway",
+            "Lockhart",
+            "Merrick",
+            "Stone"
+          ]
+        },
+        "orc": {
+          "first_name": {
+            "female": [
+              "Baggi",
+              "Dugra",
+              "Irgul",
+              "Murok",
+              "Osha",
+              "Rukha",
+              "Shura",
+              "Vagha"
+            ],
+            "male": [
+              "Ghor",
+              "Karn",
+              "Mog",
+              "Rok",
+              "Thok",
+              "Ugar",
+              "Zurk",
+              "Borg"
+            ]
+          },
+          "last_name": [
+            "Bonecrusher",
+            "Darkfang",
+            "Goretooth",
+            "Ironhide",
+            "Skullsunder",
+            "Steelshout"
+          ]
+        },
+        "tiefling": {
+          "first_name": {
+            "female": [
+              "Akta",
+              "Kallista",
+              "Lerissa",
+              "Maer",
+              "Nemeia",
+              "Riven",
+              "Sylynn",
+              "Vex"
+            ],
+            "male": [
+              "Akmenos",
+              "Barakas",
+              "Damakos",
+              "Erevan",
+              "Kairon",
+              "Lyrin",
+              "Morthos",
+              "Zariel"
+            ]
+          },
+          "last_name": [
+            "Darkflame",
+            "Emberstorm",
+            "Hellfire",
+            "Nightshade",
+            "Soulrender",
+            "Vex"
+          ]
+        }
+      }
+    }
+  },
+  "npc": {
+    "trait": [
+      "cheerful",
+      "cowardly",
+      "curious",
+      "greedy",
+      "honorable",
+      "hot-tempered",
+      "sarcastic",
+      "secretive",
+      "superstitious",
+      "wise"
+    ],
+    "goal": [
+      "Acquire forbidden knowledge",
+      "Avenge a murdered friend",
+      "Become a respected scholar",
+      "Become famous throughout the realm",
+      "Become immortal",
+      "Become the greatest warrior alive",
+      "Break a terrible curse",
+      "Build a criminal network",
+      "Building a criminal empire",
+      "Complete a sacred pilgrimage",
+      "Create a powerful artifact",
+      "Destroy a dangerous cult",
+      "Discover ancient ruins",
+      "Earn enough money to retire comfortably",
+      "Ensure their legacy is remembered",
+      "Escape crushing debt",
+      "Find a cure for a deadly illness",
+      "Find a lost sibling",
+      "Find proof of a conspiracy",
+      "Free someone from imprisonment",
+      "Gain acceptance into an elite organization",
+      "Gain control of a powerful relic",
+      "Gain political power",
+      "Hide evidence of a past crime",
+      "Hunt a legendary monster",
+      "Hunting monsters",
+      "Keep a dark secret hidden",
+      "Looking for a lost artifact",
+      "Map unknown lands",
+      "Master forbidden magic",
+      "Open their own tavern",
+      "Overthrow a corrupt ruler",
+      "Prevent an approaching disaster",
+      "Protect an important prophecy",
+      "Protect their family from danger",
+      "Protect their village at all costs",
+      "Protecting their village",
+      "Prove themselves worthy",
+      "Recover a lost memory",
+      "Recover a stolen heirloom",
+      "Recover from a public disgrace",
+      "Redeem themselves for past mistakes",
+      "Repay a life debt",
+      "Restore their family's honor",
+      "Reunite with a lost companion",
+      "Searching for forbidden knowledge",
+      "Secure peace between rival factions",
+      "Seeking revenge",
+      "Serve their god faithfully",
+      "Smuggle goods across the border",
+      "Steal a priceless treasure",
+      "Survive long enough to start over",
+      "Take revenge on a former ally",
+      "Train the next generation",
+      "Trying to become famous",
+      "Trying to pay off a debt",
+      "Uncover the truth about their past",
+      "Win the affection of someone they love"
+    ],
+    "quirk": [
+      "Always asks personal questions",
+      "Always avoids eye contact",
+      "Always carries dried flowers",
+      "Always expects betrayal",
+      "Always smells faintly of smoke",
+      "Always wears gloves",
+      "Always whispers",
+      "Avoids stepping on cracks or lines",
+      "Believes they are cursed",
+      "Cannot keep secrets",
+      "Cannot remember names",
+      "Cannot tolerate silence",
+      "Carries books but rarely reads them",
+      "Carries lucky charms everywhere",
+      "Claims to see omens everywhere",
+      "Collects monster teeth or bones",
+      "Collects useless trinkets",
+      "Compulsively lies about small things",
+      "Constantly cleans their hands",
+      "Counts coins repeatedly",
+      "Finishes other people's sentences",
+      "Gets distracted by shiny objects",
+      "Has a dramatic storytelling style",
+      "Has an irrational fear of birds",
+      "Hums while thinking",
+      "Insists on perfect punctuality",
+      "Is terrified of chickens",
+      "Keeps detailed journals about everyone met",
+      "Laughs at inappropriate moments",
+      "Makes terrible jokes during tense moments",
+      "Mispronounces common words",
+      "Never removes a particular piece of jewelry",
+      "Never removes their gloves",
+      "Never sits with their back to a door",
+      "Never turns down free food",
+      "Never uses contractions",
+      "Obsessively sharpens weapons",
+      "Overreacts to minor insults",
+      "Quotes old proverbs constantly",
+      "Refuses to eat in front of others",
+      "Refuses to kill even in self-defense",
+      "Refuses to lie",
+      "Refuses to swear oaths",
+      "Sleeps with weapons in hand",
+      "Speaks far too loudly",
+      "Speaks in overly formal language",
+      "Speaks to an imaginary companion",
+      "Talks to animals like they understand",
+      "Talks to plants",
+      "Taps fingers constantly",
+      "Treats every conversation like a negotiation",
+      "Treats strangers like old friends",
+      "Uses strange nicknames for everyone",
+      "Whispers even in safe situations",
+      "Writes everything in a journal",
+      "Writes poetry about daily events"
+    ],
+    "attitude": [
+      "admiring",
+      "aggressive",
+      "angry",
+      "cautious",
+      "cold",
+      "curious",
+      "disdainful",
+      "dismissive",
+      "distrustful",
+      "fearful",
+      "friendly",
+      "hostile",
+      "loyal",
+      "neutral",
+      "protective",
+      "resentful",
+      "respectful",
+      "supportive",
+      "suspicious",
+      "transactional"
+    ]
+  }
+}

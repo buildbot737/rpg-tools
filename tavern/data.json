@@ -1,0 +1,119 @@
+{
+  "quality": [
+    "poor",
+    "common",
+    "good"
+  ],
+  "universe": {
+    "hexxen": {
+      "name": {
+        "pattern": [
+          "Zum/Zur {{universe.hexxen.name.adjective}} {{universe.hexxen.name.kind}}",
+          "Bei/Beim {{universe.hexxen.name.adjective}} {{universe.hexxen.name.kind}}",
+          "Der/Die/Das {{universe.hexxen.name.adjective}} {{universe.hexxen.name.kind}}",
+          "Gasthof {{universe.hexxen.name.kind}}",
+          "Wirtshaus {{universe.hexxen.name.kind}}",
+          "Ratskeller {{universe.hexxen.name.kind}}",
+          "Gasthaus {{universe.hexxen.name.kind}}"
+        ],
+        "adjective": [
+          "alten",
+          "alternden",
+          "bösen",
+          "brennenden",
+          "durstigen",
+          "eisernen",
+          "gierigen",
+          "golden",
+          "guten",
+          "heulenden",
+          "hungrigen",
+          "knarrenden",
+          "lachenden",
+          "neuen",
+          "rauen",
+          "schönen",
+          "schwarzen",
+          "trunken",
+          "wilden"
+        ],
+        "kind": [
+          "{{universe.hexxen.name.animal}}",
+          "{{universe.hexxen.name.place}}",
+          "{{universe.hexxen.name.item}}",
+          "{{universe.hexxen.name.folklore}}"
+        ],
+        "animal": [
+          "Adler",
+          "Amsel",
+          "Bär",
+          "Bock",
+          "Eber",
+          "Falke",
+          "Frettchen",
+          "Hahn",
+          "Hase",
+          "Hecht",
+          "Hirsch",
+          "Lamm",
+          "Löwe",
+          "Ochsen",
+          "Raben",
+          "Ross",
+          "Rössel",
+          "Schwan",
+          "Storch",
+          "Strauß",
+          "Widder"
+        ],
+        "place": [
+          "Baum",
+          "Bergshausen",
+          "Brunnen",
+          "Erdweg",
+          "Linde",
+          "Stadtpark",
+          "Waldessaum"
+        ],
+        "item": [
+          "Kanne",
+          "Kreuz",
+          "Krone",
+          "Laute",
+          "Pflug",
+          "Sonne",
+          "Stern",
+          "Stiefel",
+          "Tropfen",
+          "Waldhorn"
+        ],
+        "folklore": [
+          "Alben",
+          "Hof",
+          "Meerjungfrau",
+          "Rübezahl",
+          "Schalk",
+          "Schelmenkeller",
+          "Schenke",
+          "Zauberberg"
+        ]
+      },
+      "area": {
+        "saxony": {},
+        "lausitz": {}
+      }
+    },
+    "aventuria": {
+      "name": {},
+      "area": {
+        "thorwal": {}
+      }
+    },
+    "faerun": {
+      "name": {},
+      "area": {
+        "icewind-dale": {}
+      }
+    }
+  }
+}

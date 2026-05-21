@@ -1,0 +1,290 @@
+async function loadData() {
+  try {
+    const response = await fetch("./data.json");
+
+    if (!response.ok) {
+      throw new Error(`Failed to load data.json: ${response.status} ${response.statusText}`);
+    }
+
+    const loaded = await response.json();
+    return loaded;
+  } catch (error) {
+    createOutput(`Error loading data: ${error.message}`);
+    console.error(error);
+    return null;
+  }
+}
+
+function pick(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function rand(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getUniverses(data) {
+  const keys = Object.keys(data.universe ?? {});
+  const sorted = keys.sort((a, b) => a.localeCompare(b));
+  return sorted;
+}
+
+function getLineages(data, universe) {
+  const keys = Object.keys(data.universe[universe]?.lineage ?? {});
+  const sorted = keys.sort((a, b) => a.localeCompare(b));
+  return sorted;
+}
+
+function getGenders(data, universe, lineage) {
+  const options = data.universe[universe]?.lineage?.[lineage]?.gender
+    ?? data.universe[universe]?.gender
+    ?? data.gender;
+
+  if (Array.isArray(options)) {
+    return options;
+  }
+
+  return options ? [options] : ["unknown"];
+}
+
+function FirstName(data, universe, lineage, gender) {
+  const list = data.universe[universe]?.lineage?.[lineage]?.first_name?.[gender] ?? [];
+  return list.length ? pick(list) : "Unknown";
+}
+
+function LastName(data, universe, lineage) {
+  const list = data.universe[universe]?.lineage?.[lineage]?.last_name ?? [];
+  return list.length ? pick(list) : "Unknown";
+}
+
+function Lineage(data, universe) {
+  const options = getLineages(data, universe);
+  return options.length ? pick(options) : "unknown";
+}
+
+function Age(data, universe, lineage) {
+  const min = data.universe[universe]?.lineage?.[lineage]?.age?.min
+    ?? data.universe[universe]?.age?.min
+    ?? data.age?.min;
+
+  const max = data.universe[universe]?.lineage?.[lineage]?.age?.max
+    ?? data.universe[universe]?.age?.max
+    ?? data.age?.max;
+
+  if (!min || !max) {
+    return "Unknown";
+  }
+
+  return rand(min, max);
+}
+
+function generateNPC(data, universe, selectedLineage = "random", selectedGender = "random") {
+  const options = getLineages(data, universe);
+
+  if (!options.length) {
+    return null;
+  }
+
+  const lineage = selectedLineage === "random" || !options.includes(selectedLineage)
+    ? Lineage(data, universe)
+    : selectedLineage;
+
+  const gender = selectedGender === "random" || !data.gender.includes(selectedGender)
+    ? pick(data.gender)
+    : selectedGender;
+
+  return {
+    universe,
+    lineage,
+    gender,
+    firstname: FirstName(data, universe, lineage, gender),
+    lastname: LastName(data, universe, lineage),
+    age: Age(data, universe, lineage),
+    trait: pick(data.npc.trait),
+    goal: pick(data.npc.goal),
+    quirk: pick(data.npc.quirk),
+    publicAttitude: pick(data.npc.attitude),
+    trueAttitude: pick(data.npc.attitude),
+  };
+}
+
+function formatNPC(npc, index) {
+  if (!npc) {
+    return `NPC ${index + 1}: Could not generate an NPC for the selected universe.`;
+  }
+
+  return [
+    `Lineage: ${npc.lineage}`,
+    `Gender: ${npc.gender}`,
+    `Name: ${npc.firstname} ${npc.lastname} (${npc.age})`,
+    `Trait: ${npc.trait}`,
+    `Goal: ${npc.goal}`,
+    `Quirk: ${npc.quirk}`,
+    `Public Attitude: ${npc.publicAttitude}`,
+    `True Attitude: ${npc.trueAttitude}`,
+  ].join("\n");
+}
+
+function renderUniverseOptions(data) {
+  const universeSelect = document.getElementById("universe-select");
+  universeSelect.innerHTML = getUniverses(data)
+    .map(universe => `<option value="${universe}">${universe}</option>`)
+    .join("");
+}
+
+function renderLineageOptions(data, universe) {
+  const lineageSelect = document.getElementById("lineage-select");
+  const options = ["random", ...getLineages(data, universe)];
+  lineageSelect.innerHTML = options
+    .map(value => `<option value="${value}">${value === "random" ? "Random" : value}</option>`)
+    .join("");
+}
+
+function renderGenderOptions(data, universe, lineage) {
+  const genderSelect = document.getElementById("gender-select");
+  const genders = getGenders(data, universe, lineage);
+  const options = ["random", ...genders];
+  genderSelect.innerHTML = options
+    .map(value => `<option value="${value}">${value === "random" ? "Random" : value}</option>`)
+    .join("");
+}
+
+function getQueryDefaults(data) {
+  const params = new URLSearchParams(window.location.search);
+  const universes = getUniverses(data);
+  const universeParam = params.get("universe");
+  const universe = universeParam && universes.includes(universeParam)
+    ? universeParam
+    : (universes.includes("hexxen") ? "hexxen" : universes[0] ?? "");
+
+  const lineages = getLineages(data, universe);
+  const lineageParam = params.get("lineage");
+  const lineage = lineageParam && lineages.includes(lineageParam)
+    ? lineageParam
+    : "random";
+
+  const genders = getGenders(data, universe, lineage);
+  const genderParam = params.get("gender");
+  const gender = genderParam && (genderParam === "random" || genders.includes(genderParam))
+    ? genderParam
+    : "random";
+
+  const parsed = Number.parseInt(params.get("num") ?? "", 10);
+  const count = Math.min(10, Math.max(1, isNaN(parsed) ? 2 : parsed));
+  return { universe, lineage, gender, count };
+}
+
+function copyTextToClipboard(text) {
+  if (navigator.clipboard?.writeText) {
+    return navigator.clipboard.writeText(text);
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.top = "0";
+  textarea.style.left = "0";
+  textarea.style.width = "1px";
+  textarea.style.height = "1px";
+  textarea.style.padding = "0";
+  textarea.style.border = "none";
+  textarea.style.outline = "none";
+  textarea.style.boxShadow = "none";
+  textarea.style.background = "transparent";
+  document.body.appendChild(textarea);
+  textarea.select();
+
+  const successful = document.execCommand("copy");
+  document.body.removeChild(textarea);
+
+  if (!successful) {
+    return Promise.reject(new Error("Copy command failed"));
+  }
+
+  return Promise.resolve();
+}
+
+function createOutput(message) {
+  document.getElementById("output").textContent = message;
+}
+
+function generateFromForm(data) {
+  const universe = document.getElementById("universe-select").value;
+  const lineage = document.getElementById("lineage-select").value;
+  const gender = document.getElementById("gender-select").value;
+  const count = Math.min(10, Math.max(1, Number(document.getElementById("count-input").value) || 1));
+  const lineages = getLineages(data, universe);
+
+  if (!lineages.length) {
+    createOutput(`No lineages are available for ${universe}. Please choose another universe.`);
+    return;
+  }
+
+  const results = Array.from({ length: count }, (_, index) => formatNPC(generateNPC(data, universe, lineage, gender), index));
+  createOutput(results.join("\n\n"));
+}
+
+function clearOutput() {
+  createOutput("Choose options and press Generate.");
+}
+
+async function init() {
+  const data = await loadData();
+
+  if (!data) {
+    return;
+  }
+
+  const queryDefaults = getQueryDefaults(data);
+  renderUniverseOptions(data);
+  document.getElementById("universe-select").value = queryDefaults.universe;
+  renderLineageOptions(data, queryDefaults.universe);
+  document.getElementById("lineage-select").value = queryDefaults.lineage;
+  renderGenderOptions(data, queryDefaults.universe, queryDefaults.lineage);
+  document.getElementById("gender-select").value = queryDefaults.gender;
+  document.getElementById("count-input").value = queryDefaults.count;
+  clearOutput();
+
+  document.getElementById("universe-select").addEventListener("change", event => {
+    renderLineageOptions(data, event.target.value);
+  });
+
+  document.getElementById("lineage-select").addEventListener("change", event => {
+    const currentUniverse = document.getElementById("universe-select").value;
+    const currentGender = document.getElementById("gender-select").value;
+    const validGenders = getGenders(data, currentUniverse, event.target.value);
+    const isGenderValid = currentGender === "random" || validGenders.includes(currentGender);
+
+    renderGenderOptions(data, currentUniverse, event.target.value);
+
+    if (isGenderValid) {
+      document.getElementById("gender-select").value = currentGender;
+    }
+  });
+
+  document.getElementById("generate-button").addEventListener("click", () => generateFromForm(data));
+  document.getElementById("clear-button").addEventListener("click", () => clearOutput());
+  document.getElementById("copy-button").addEventListener("click", async event => {
+    const outputText = document.getElementById("output").textContent || "";
+
+    try {
+      await copyTextToClipboard(outputText);
+      const button = event.currentTarget;
+      const previousLabel = button.textContent;
+      button.textContent = "Copied!";
+      setTimeout(() => {
+        button.textContent = previousLabel;
+      }, 1200);
+    } catch (error) {
+      const button = event.currentTarget;
+      const previousLabel = button.textContent;
+      button.textContent = "Failed!";
+      setTimeout(() => {
+        button.textContent = previousLabel;
+      }, 1200);
+    }
+  });
+}
+
+window.addEventListener("DOMContentLoaded", init);
