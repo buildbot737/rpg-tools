@@ -84,8 +84,33 @@
       background: #22d3ee;
     }
 
-    .output {
-      margin-top: 24px;
+    .note {
+      margin-bottom: 20px;
+      color: #94a3b8;
+    }
+
+    .copy-container {
+        position: relative;
+        border: 1px solid #ccc;
+        padding: 16px;
+    }
+
+    .copy-btn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        font-size: 18px;
+    }
+
+    .copy-btn:hover {
+        opacity: 0.7;
+    }
+
+    .npc-output-box {
+      margin-bottom: 20px;
       padding: 20px;
       border-radius: 16px;
       background: #0f172a;
@@ -93,13 +118,52 @@
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
       white-space: pre-wrap;
       line-height: 1.75;
-      min-height: 220px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1em;
     }
 
-    .note {
-      margin-bottom: 20px;
-      color: #94a3b8;
+    .npc-output-text {
+      flex: 1;
+      color: #f8fafc;
     }
+
+    .npc-copy-btn {
+      padding: 0.5em;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #94a3b8;
+      flex-shrink: 0;
+      transition: color 0.2s ease;
+    }
+
+    .npc-copy-btn:hover {
+      color: #cbd5e1;
+    }
+
+    .npc-copy-btn.success {
+      color: #4caf50;
+    }
+
+    .npc-copy-btn.error {
+      color: #f44336;
+    }
+
+    .clipboard-textarea {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      background: transparent;
+    }
+
   </style>
 </head>
 <body>
@@ -129,10 +193,9 @@
     <div class="controls">
       <button id="generate-button">Generate</button>
       <button id="clear-button">Clear</button>
-      <button id="copy-button">Copy to Clipboard</button>
     </div>
 
-    <div id="output" class="output"></div>
+    <div id="output" class="output">
   </div>
 
   <script type="module" src="index.js"></script>

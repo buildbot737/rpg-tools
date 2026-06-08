@@ -182,16 +182,7 @@ function copyTextToClipboard(text) {
   const textarea = document.createElement("textarea");
   textarea.value = text;
   textarea.setAttribute("readonly", "");
-  textarea.style.position = "fixed";
-  textarea.style.top = "0";
-  textarea.style.left = "0";
-  textarea.style.width = "1px";
-  textarea.style.height = "1px";
-  textarea.style.padding = "0";
-  textarea.style.border = "none";
-  textarea.style.outline = "none";
-  textarea.style.boxShadow = "none";
-  textarea.style.background = "transparent";
+  textarea.className = "clipboard-textarea";
   document.body.appendChild(textarea);
   textarea.select();
 
@@ -206,7 +197,44 @@ function copyTextToClipboard(text) {
 }
 
 function createOutput(message) {
-  document.getElementById("output").textContent = message;
+  const container = document.getElementById("output");
+  container.innerHTML = message;
+}
+
+function addNPCOutput(npcText) {
+  const outputContainer = document.getElementById("output");
+
+  const element = document.createElement("div");
+  element.className = "npc-output-box";
+
+  const textContent = document.createElement("div");
+  textContent.className = "npc-output-text";
+  textContent.textContent = npcText;
+
+  const copyButton = document.createElement("button");
+  copyButton.className = "npc-copy-btn";
+  copyButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 1em; height: 1em; vertical-align: -0.125em;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`;
+  copyButton.title = "Copy to clipboard";
+  copyButton.addEventListener("click", async event => {
+    try {
+      await copyTextToClipboard(npcText);
+      const button = event.currentTarget;
+      button.classList.add("success");
+      setTimeout(() => {
+        button.classList.remove("success");
+      }, 1200);
+    } catch (error) {
+      const button = event.currentTarget;
+      button.classList.add("error");
+      setTimeout(() => {
+        button.classList.remove("error");
+      }, 1200);
+    }
+  });
+
+  element.appendChild(textContent);
+  element.appendChild(copyButton);
+  outputContainer.appendChild(element);
 }
 
 function generateFromForm(data) {
@@ -221,8 +249,11 @@ function generateFromForm(data) {
     return;
   }
 
-  const results = Array.from({ length: count }, (_, index) => formatNPC(generateNPC(data, universe, lineage, gender), index));
-  createOutput(results.join("\n\n"));
+  const outputContainer = document.getElementById("output");
+  outputContainer.innerHTML = "";
+
+  Array.from({ length: count }, (_, index) => formatNPC(generateNPC(data, universe, lineage, gender), index))
+    .forEach(npcText => addNPCOutput(npcText));
 }
 
 function clearOutput() {
@@ -265,26 +296,6 @@ async function init() {
 
   document.getElementById("generate-button").addEventListener("click", () => generateFromForm(data));
   document.getElementById("clear-button").addEventListener("click", () => clearOutput());
-  document.getElementById("copy-button").addEventListener("click", async event => {
-    const outputText = document.getElementById("output").textContent || "";
-
-    try {
-      await copyTextToClipboard(outputText);
-      const button = event.currentTarget;
-      const previousLabel = button.textContent;
-      button.textContent = "Copied!";
-      setTimeout(() => {
-        button.textContent = previousLabel;
-      }, 1200);
-    } catch (error) {
-      const button = event.currentTarget;
-      const previousLabel = button.textContent;
-      button.textContent = "Failed!";
-      setTimeout(() => {
-        button.textContent = previousLabel;
-      }, 1200);
-    }
-  });
 }
 
 window.addEventListener("DOMContentLoaded", init);
