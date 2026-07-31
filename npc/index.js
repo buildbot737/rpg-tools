@@ -114,14 +114,14 @@ function formatNPC(npc, index) {
   }
 
   return [
-    `Lineage: ${npc.lineage}`,
-    `Gender: ${npc.gender}`,
-    `Name: ${npc.firstname} ${npc.lastname} (${npc.age})`,
-    `Trait: ${npc.trait}`,
-    `Goal: ${npc.goal}`,
-    `Quirk: ${npc.quirk}`,
-    `Public Attitude: ${npc.publicAttitude}`,
-    `True Attitude: ${npc.trueAttitude}`,
+    `<b>Lineage</b>: ${npc.lineage}`,
+    `<b>Gender</b>: ${npc.gender}`,
+    `<b>Name</b>: ${npc.firstname} ${npc.lastname} (${npc.age})`,
+    `<b>Trait</b>: ${npc.trait}`,
+    `<b>Goal</b>: ${npc.goal}`,
+    `<b>Quirk</b>: ${npc.quirk}`,
+    `<b>Public Attitude</b>: ${npc.publicAttitude}`,
+    `<b>True Attitude</b>: ${npc.trueAttitude}`,
   ].join("\n");
 }
 
@@ -209,7 +209,7 @@ function addNPCOutput(npcText) {
 
   const textContent = document.createElement("div");
   textContent.className = "npc-output-text";
-  textContent.textContent = npcText;
+  textContent.innerHTML = npcText;
 
   const copyButton = document.createElement("button");
   copyButton.className = "npc-copy-btn";
